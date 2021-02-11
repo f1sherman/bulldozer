@@ -16,6 +16,8 @@ package server
 
 import (
 	"fmt"
+	"os"
+	"strconv"
 
 	"github.com/c2h5oh/datasize"
 	"github.com/die-net/lrucache"
@@ -44,6 +46,12 @@ func New(c *Config) (*Server, error) {
 		Level:  c.Logging.Level,
 		Pretty: c.Logging.Text,
 	})
+
+	if v, ok := os.LookupEnv("PORT"); ok {
+		if i, err := strconv.Atoi(v); err == nil {
+			c.Server.Port = i
+		}
+	}
 
 	serverParams := baseapp.DefaultParams(logger, c.Options.AppName+".")
 	base, err := baseapp.NewServer(c.Server, serverParams...)
