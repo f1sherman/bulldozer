@@ -47,7 +47,7 @@ func New(c *Config) (*Server, error) {
 		Pretty: c.Logging.Text,
 	})
 
-	if v, ok := os.LookupEnv("PORT"); ok {
+	if v, ok := os.LookupEnv("BULLDOZER_PORT"); ok {
 		if i, err := strconv.Atoi(v); err == nil {
 			c.Server.Port = i
 		}

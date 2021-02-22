@@ -2,7 +2,7 @@
 server:
   # The listen address
   address: "0.0.0.0"
-  # The listen port. Can also be set by the PORT environment variable.
+  # The listen port. Can also be set by the BULLDOZER_PORT environment variable.
   port: 8080
   # Uncomment the "tls_config" block to enable HTTPS support in the server.
   # The cert and key files must be usable by net/http.ListenAndServeTLS().
